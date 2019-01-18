@@ -34,6 +34,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.liveServerTabPage = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.liveServerStartButton = new System.Windows.Forms.Button();
+            this.liveServerStatus = new System.Windows.Forms.Label();
+            this.liveServerStatusPicture = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,6 +46,10 @@
             this.autostartLiveServer = new System.Windows.Forms.CheckBox();
             this.selectLiveServerPath = new System.Windows.Forms.Button();
             this.devServerTabPage = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.devServerStartButton = new System.Windows.Forms.Button();
+            this.devServerStatus = new System.Windows.Forms.Label();
+            this.devServerStatusPicture = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,31 +58,24 @@
             this.devServerPath = new System.Windows.Forms.Label();
             this.autostartDevServer = new System.Windows.Forms.CheckBox();
             this.selectDevServerPath = new System.Windows.Forms.Button();
-            this.save = new System.Windows.Forms.Button();
-            this.liveServerStatusPicture = new System.Windows.Forms.PictureBox();
-            this.liveServerStatus = new System.Windows.Forms.Label();
-            this.liveServerStartButton = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.devServerStartButton = new System.Windows.Forms.Button();
-            this.devServerStatus = new System.Windows.Forms.Label();
-            this.devServerStatusPicture = new System.Windows.Forms.PictureBox();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.labeln = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.jenkinsUser = new System.Windows.Forms.TextBox();
             this.jenkinsPassword = new System.Windows.Forms.TextBox();
+            this.jenkinsUser = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labeln = new System.Windows.Forms.Label();
+            this.save = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.liveServerTabPage.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.liveServerStatusPicture)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeLiveServer)).BeginInit();
             this.devServerTabPage.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeDevServer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.liveServerStatusPicture)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.devServerStatusPicture)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDevServer)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,6 +122,39 @@
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Live-Server-Status";
+            // 
+            // liveServerStartButton
+            // 
+            this.liveServerStartButton.Location = new System.Drawing.Point(362, 21);
+            this.liveServerStartButton.Name = "liveServerStartButton";
+            this.liveServerStartButton.Size = new System.Drawing.Size(174, 30);
+            this.liveServerStartButton.TabIndex = 2;
+            this.liveServerStartButton.Text = "Start Now!";
+            this.liveServerStartButton.UseVisualStyleBackColor = true;
+            this.liveServerStartButton.Click += new System.EventHandler(this.liveServerStartButton_Click);
+            // 
+            // liveServerStatus
+            // 
+            this.liveServerStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.liveServerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.liveServerStatus.ForeColor = System.Drawing.Color.Red;
+            this.liveServerStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.liveServerStatus.Location = new System.Drawing.Point(44, 19);
+            this.liveServerStatus.Name = "liveServerStatus";
+            this.liveServerStatus.Size = new System.Drawing.Size(492, 32);
+            this.liveServerStatus.TabIndex = 1;
+            this.liveServerStatus.Text = "Offline since xxx seconds";
+            this.liveServerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // liveServerStatusPicture
+            // 
+            this.liveServerStatusPicture.Image = ((System.Drawing.Image)(resources.GetObject("liveServerStatusPicture.Image")));
+            this.liveServerStatusPicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("liveServerStatusPicture.InitialImage")));
+            this.liveServerStatusPicture.Location = new System.Drawing.Point(6, 19);
+            this.liveServerStatusPicture.Name = "liveServerStatusPicture";
+            this.liveServerStatusPicture.Size = new System.Drawing.Size(32, 32);
+            this.liveServerStatusPicture.TabIndex = 0;
+            this.liveServerStatusPicture.TabStop = false;
             // 
             // groupBox1
             // 
@@ -231,6 +264,51 @@
             this.devServerTabPage.Text = "Dev-Server";
             this.devServerTabPage.UseVisualStyleBackColor = true;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.devServerStartButton);
+            this.groupBox4.Controls.Add(this.devServerStatus);
+            this.groupBox4.Controls.Add(this.devServerStatusPicture);
+            this.groupBox4.Location = new System.Drawing.Point(6, 109);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(542, 59);
+            this.groupBox4.TabIndex = 18;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Development-Server-Status";
+            // 
+            // devServerStartButton
+            // 
+            this.devServerStartButton.Location = new System.Drawing.Point(362, 21);
+            this.devServerStartButton.Name = "devServerStartButton";
+            this.devServerStartButton.Size = new System.Drawing.Size(174, 30);
+            this.devServerStartButton.TabIndex = 2;
+            this.devServerStartButton.Text = "Start Now!";
+            this.devServerStartButton.UseVisualStyleBackColor = true;
+            this.devServerStartButton.Click += new System.EventHandler(this.devServerStartButton_Click);
+            // 
+            // devServerStatus
+            // 
+            this.devServerStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.devServerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.devServerStatus.ForeColor = System.Drawing.Color.Red;
+            this.devServerStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.devServerStatus.Location = new System.Drawing.Point(44, 19);
+            this.devServerStatus.Name = "devServerStatus";
+            this.devServerStatus.Size = new System.Drawing.Size(492, 32);
+            this.devServerStatus.TabIndex = 1;
+            this.devServerStatus.Text = "Offline since xxx seconds";
+            this.devServerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // devServerStatusPicture
+            // 
+            this.devServerStatusPicture.Image = ((System.Drawing.Image)(resources.GetObject("devServerStatusPicture.Image")));
+            this.devServerStatusPicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("devServerStatusPicture.InitialImage")));
+            this.devServerStatusPicture.Location = new System.Drawing.Point(6, 19);
+            this.devServerStatusPicture.Name = "devServerStatusPicture";
+            this.devServerStatusPicture.Size = new System.Drawing.Size(32, 32);
+            this.devServerStatusPicture.TabIndex = 0;
+            this.devServerStatusPicture.TabStop = false;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label5);
@@ -327,98 +405,6 @@
             this.selectDevServerPath.UseVisualStyleBackColor = true;
             this.selectDevServerPath.Click += new System.EventHandler(this.selectDevServerPath_Click);
             // 
-            // save
-            // 
-            this.save.Location = new System.Drawing.Point(504, 0);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(59, 20);
-            this.save.TabIndex = 1;
-            this.save.Text = "Save";
-            this.save.UseVisualStyleBackColor = true;
-            this.save.Click += new System.EventHandler(this.save_Click);
-            // 
-            // liveServerStatusPicture
-            // 
-            this.liveServerStatusPicture.Image = ((System.Drawing.Image)(resources.GetObject("liveServerStatusPicture.Image")));
-            this.liveServerStatusPicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("liveServerStatusPicture.InitialImage")));
-            this.liveServerStatusPicture.Location = new System.Drawing.Point(6, 19);
-            this.liveServerStatusPicture.Name = "liveServerStatusPicture";
-            this.liveServerStatusPicture.Size = new System.Drawing.Size(32, 32);
-            this.liveServerStatusPicture.TabIndex = 0;
-            this.liveServerStatusPicture.TabStop = false;
-            // 
-            // liveServerStatus
-            // 
-            this.liveServerStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.liveServerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.liveServerStatus.ForeColor = System.Drawing.Color.Red;
-            this.liveServerStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.liveServerStatus.Location = new System.Drawing.Point(44, 19);
-            this.liveServerStatus.Name = "liveServerStatus";
-            this.liveServerStatus.Size = new System.Drawing.Size(492, 32);
-            this.liveServerStatus.TabIndex = 1;
-            this.liveServerStatus.Text = "Offline since xxx seconds";
-            this.liveServerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // liveServerStartButton
-            // 
-            this.liveServerStartButton.Location = new System.Drawing.Point(362, 21);
-            this.liveServerStartButton.Name = "liveServerStartButton";
-            this.liveServerStartButton.Size = new System.Drawing.Size(174, 30);
-            this.liveServerStartButton.TabIndex = 2;
-            this.liveServerStartButton.Text = "Start Now!";
-            this.liveServerStartButton.UseVisualStyleBackColor = true;
-            this.liveServerStartButton.Visible = false;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.devServerStartButton);
-            this.groupBox4.Controls.Add(this.devServerStatus);
-            this.groupBox4.Controls.Add(this.devServerStatusPicture);
-            this.groupBox4.Location = new System.Drawing.Point(6, 109);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(542, 59);
-            this.groupBox4.TabIndex = 18;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Development-Server-Status";
-            // 
-            // devServerStartButton
-            // 
-            this.devServerStartButton.Location = new System.Drawing.Point(362, 21);
-            this.devServerStartButton.Name = "devServerStartButton";
-            this.devServerStartButton.Size = new System.Drawing.Size(174, 30);
-            this.devServerStartButton.TabIndex = 2;
-            this.devServerStartButton.Text = "Start Now!";
-            this.devServerStartButton.UseVisualStyleBackColor = true;
-            this.devServerStartButton.Visible = false;
-            // 
-            // devServerStatus
-            // 
-            this.devServerStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.devServerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.devServerStatus.ForeColor = System.Drawing.Color.Red;
-            this.devServerStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.devServerStatus.Location = new System.Drawing.Point(44, 19);
-            this.devServerStatus.Name = "devServerStatus";
-            this.devServerStatus.Size = new System.Drawing.Size(492, 32);
-            this.devServerStatus.TabIndex = 1;
-            this.devServerStatus.Text = "Offline since xxx seconds";
-            this.devServerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // devServerStatusPicture
-            // 
-            this.devServerStatusPicture.Image = ((System.Drawing.Image)(resources.GetObject("devServerStatusPicture.Image")));
-            this.devServerStatusPicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("devServerStatusPicture.InitialImage")));
-            this.devServerStatusPicture.Location = new System.Drawing.Point(6, 19);
-            this.devServerStatusPicture.Name = "devServerStatusPicture";
-            this.devServerStatusPicture.Size = new System.Drawing.Size(32, 32);
-            this.devServerStatusPicture.TabIndex = 0;
-            this.devServerStatusPicture.TabStop = false;
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "GrandTheftMultiplayer.Server.exe";
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.jenkinsPassword);
@@ -433,14 +419,19 @@
             this.tabPage1.Text = "General Settings";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // labeln
+            // jenkinsPassword
             // 
-            this.labeln.AutoSize = true;
-            this.labeln.Location = new System.Drawing.Point(38, 16);
-            this.labeln.Name = "labeln";
-            this.labeln.Size = new System.Drawing.Size(78, 15);
-            this.labeln.TabIndex = 0;
-            this.labeln.Text = "Jenkins User";
+            this.jenkinsPassword.Location = new System.Drawing.Point(122, 42);
+            this.jenkinsPassword.Name = "jenkinsPassword";
+            this.jenkinsPassword.Size = new System.Drawing.Size(242, 20);
+            this.jenkinsPassword.TabIndex = 3;
+            // 
+            // jenkinsUser
+            // 
+            this.jenkinsUser.Location = new System.Drawing.Point(122, 16);
+            this.jenkinsUser.Name = "jenkinsUser";
+            this.jenkinsUser.Size = new System.Drawing.Size(242, 20);
+            this.jenkinsUser.TabIndex = 2;
             // 
             // label2
             // 
@@ -452,19 +443,28 @@
             this.label2.Text = "Jenkins Password";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // jenkinsUser
+            // labeln
             // 
-            this.jenkinsUser.Location = new System.Drawing.Point(122, 16);
-            this.jenkinsUser.Name = "jenkinsUser";
-            this.jenkinsUser.Size = new System.Drawing.Size(242, 20);
-            this.jenkinsUser.TabIndex = 2;
+            this.labeln.AutoSize = true;
+            this.labeln.Location = new System.Drawing.Point(38, 16);
+            this.labeln.Name = "labeln";
+            this.labeln.Size = new System.Drawing.Size(78, 15);
+            this.labeln.TabIndex = 0;
+            this.labeln.Text = "Jenkins User";
             // 
-            // jenkinsPassword
+            // save
             // 
-            this.jenkinsPassword.Location = new System.Drawing.Point(122, 42);
-            this.jenkinsPassword.Name = "jenkinsPassword";
-            this.jenkinsPassword.Size = new System.Drawing.Size(242, 20);
-            this.jenkinsPassword.TabIndex = 3;
+            this.save.Location = new System.Drawing.Point(504, 0);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(59, 20);
+            this.save.TabIndex = 1;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "GrandTheftMultiplayer.Server.exe";
             // 
             // Form1
             // 
@@ -483,16 +483,16 @@
             this.tabControl1.ResumeLayout(false);
             this.liveServerTabPage.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.liveServerStatusPicture)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeLiveServer)).EndInit();
             this.devServerTabPage.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.devServerStatusPicture)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeDevServer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.liveServerStatusPicture)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.devServerStatusPicture)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.ResumeLayout(false);

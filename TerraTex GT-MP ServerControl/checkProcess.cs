@@ -80,16 +80,37 @@ namespace TerraTex_GT_MP_ServerControl
                     _form.SetLiveServerStatus(2, _liveOfflineCounter);
                     if (CheckBuildStatusOfJenkins("master"))
                     {
-                        ProcessStartInfo startInfo = new ProcessStartInfo();
-                        startInfo.WorkingDirectory = Path.GetDirectoryName(livePath);
-                        startInfo.FileName = livePath;
-                        Process.Start(startInfo);
-                        Thread.Sleep(5000);
-                        _liveOfflineCounter = 0;
+                        StartProcess(true);
                     }
                 }
             }
 
+        }
+
+        public void StartProcess(Boolean live)
+        {
+            string livePath = app.Default.live_path;
+            string devPath = app.Default.dev_path;
+
+            if (live)
+            {
+
+                _liveOfflineCounter = 0;
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.WorkingDirectory = Path.GetDirectoryName(livePath) ?? throw new InvalidOperationException();
+                startInfo.FileName = livePath;
+                Process.Start(startInfo);
+                Thread.Sleep(5000);
+            }
+            else
+            {
+                _devOfflineCounter = 0;
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.WorkingDirectory = Path.GetDirectoryName(devPath) ?? throw new InvalidOperationException();
+                startInfo.FileName = devPath;
+                Process.Start(startInfo);
+                Thread.Sleep(5000);
+            }
         }
 
         private void CheckDevProcess()
@@ -128,12 +149,7 @@ namespace TerraTex_GT_MP_ServerControl
 
                     if (CheckBuildStatusOfJenkins("develop"))
                     {
-                        ProcessStartInfo startInfo = new ProcessStartInfo();
-                        startInfo.WorkingDirectory = Path.GetDirectoryName(devPath);
-                        startInfo.FileName = devPath;
-                        Process.Start(startInfo);
-                        Thread.Sleep(5000);
-                        _devOfflineCounter = 0;
+                        StartProcess(false);
                     }
                 }
             }
@@ -145,36 +161,46 @@ namespace TerraTex_GT_MP_ServerControl
             // Path 1: 
             // Path 2: http://build.terratex.eu:8080/job/TerraTex-Community/job/GT-MP-Reallife-RPG-Script/job/develop/{latestBuildId}/api/json
             // 3.: building: false && result: SUCCESS
-
-            WebRequest request = WebRequest.Create("http://build.terratex.eu:8080/job/TerraTex-Community/job/GT-MP-Reallife-RPG-Script/job/" + branch + "/api/json");
-            WebResponse response = request.GetResponse();
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
-            reader.Close();
-            response.Close();
-            JObject jo = JObject.Parse(responseFromServer);
-            JObject lastBuild = (JObject)jo.GetValue("lastBuild");
-            string buildUrl = (string)lastBuild.GetValue("url");
-            buildUrl += "api/json";
-
-            request = WebRequest.Create(buildUrl);
-            response = request.GetResponse();
-            dataStream = response.GetResponseStream();
-            reader = new StreamReader(dataStream);
-            responseFromServer = reader.ReadToEnd();
-            reader.Close();
-            response.Close();
-
-            jo = JObject.Parse(responseFromServer);
-
-            string result = (string) jo.GetValue("result");
-            string building = (string) jo.GetValue("building");
-
-            if (building.Equals("False") && result.Equals("SUCCESS"))
+            try
             {
-                return true;
+                WebRequest request = WebRequest.Create("http://build.terratex.eu:8080/job/tt-ragemp-typescript/job/" + branch + "/api/json");
+                WebResponse response = request.GetResponse();
+                Stream dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream ?? throw new InvalidOperationException());
+                string responseFromServer = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                JObject jo = JObject.Parse(responseFromServer);
+                JObject lastBuild = (JObject)jo.GetValue("lastBuild");
+                string buildUrl = (string)lastBuild.GetValue("url");
+                buildUrl += "api/json";
+
+            
+                request = WebRequest.Create(buildUrl);
+                response = request.GetResponse();
+                dataStream = response.GetResponseStream();
+                reader = new StreamReader(dataStream ?? throw new InvalidOperationException());
+                responseFromServer = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+            
+
+                jo = JObject.Parse(responseFromServer);
+
+                string result = (string) jo.GetValue("result");
+                string building = (string) jo.GetValue("building");
+
+                if (building.Equals("False") && result.Equals("SUCCESS"))
+                {
+                    return true;
+                }
+                return false;
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
             return false;
         }
 

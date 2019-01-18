@@ -216,5 +216,16 @@ namespace TerraTex_GT_MP_ServerControl
             
            
         }
+
+        private void liveServerStartButton_Click(object sender, EventArgs e)
+        {
+            Program.Worker.StartProcess(true);
+        }
+
+        private void devServerStartButton_Click(object sender, EventArgs e)
+        {
+            Program.Worker.StartProcess(false);
+
+        }
     }
 }
