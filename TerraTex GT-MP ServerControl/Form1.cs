@@ -85,7 +85,7 @@ namespace TerraTex_GT_MP_ServerControl
                 return JObject.FromObject(status).ToString();
 
 
-            }, "http://localhost:11000/", "http://terratex.eu:11000/");
+            }, "http://localhost:11000/");
             Program.ws.Run();
         }
 

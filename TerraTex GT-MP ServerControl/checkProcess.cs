@@ -95,7 +95,9 @@ namespace TerraTex_GT_MP_ServerControl
             if (live)
             {
 
+                _form.SetLiveServerStatus(1, 0);
                 _liveOfflineCounter = 0;
+                _liveLastCheck = GetUnixTimeStamp();
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.WorkingDirectory = Path.GetDirectoryName(livePath) ?? throw new InvalidOperationException();
                 startInfo.FileName = livePath;
@@ -104,7 +106,9 @@ namespace TerraTex_GT_MP_ServerControl
             }
             else
             {
+                _form.SetDevServerStatus(1, 0);
                 _devOfflineCounter = 0;
+                _devLastCheck = GetUnixTimeStamp();
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.WorkingDirectory = Path.GetDirectoryName(devPath) ?? throw new InvalidOperationException();
                 startInfo.FileName = devPath;
