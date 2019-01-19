@@ -145,7 +145,7 @@ namespace TerraTex_GT_MP_ServerControl
                 Int32 time = GetUnixTimeStamp() - _devLastCheck;
                 _devLastCheck = GetUnixTimeStamp();
                 _devOfflineCounter += time;
-                _form.SetDevServerStatus(0, _liveOfflineCounter);
+                _form.SetDevServerStatus(0, _devOfflineCounter);
 
                 if (_devOfflineCounter > devSeconds && devAutoRestart)
                 {
