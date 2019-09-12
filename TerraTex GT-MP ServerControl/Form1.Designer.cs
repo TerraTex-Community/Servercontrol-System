@@ -23,13 +23,14 @@
         #region Vom Windows Form-Designer generierter Code
 
         /// <summary>
-        /// Erforderliche Methode für die Designerunterstützung.
-        /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.liveServerTabPage = new System.Windows.Forms.TabPage();
@@ -59,8 +60,8 @@
             this.autostartDevServer = new System.Windows.Forms.CheckBox();
             this.selectDevServerPath = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.jenkinsPassword = new System.Windows.Forms.TextBox();
-            this.jenkinsUser = new System.Windows.Forms.TextBox();
+            this.jenkinsPath = new System.Windows.Forms.TextBox();
+            this.customWindowTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labeln = new System.Windows.Forms.Label();
             this.save = new System.Windows.Forms.Button();
@@ -68,30 +69,32 @@
             this.tabControl1.SuspendLayout();
             this.liveServerTabPage.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.liveServerStatusPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.liveServerStatusPicture)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeLiveServer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.timeLiveServer)).BeginInit();
             this.devServerTabPage.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.devServerStatusPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.devServerStatusPicture)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeDevServer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.timeDevServer)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon2
             // 
-            this.notifyIcon2.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon2.Icon")));
-            this.notifyIcon2.Text = "TerraTex GT-MP ServerControl";
+            this.notifyIcon2.Icon = ((System.Drawing.Icon) (resources.GetObject("notifyIcon2.Icon")));
+            this.notifyIcon2.Text = "TerraTex ServerControl";
             this.notifyIcon2.Visible = true;
-            this.notifyIcon2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            this.notifyIcon2.MouseDoubleClick +=
+                new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.liveServerTabPage);
             this.tabControl1.Controls.Add(this.devServerTabPage);
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.tabControl1.Location = new System.Drawing.Point(-1, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -102,7 +105,8 @@
             // 
             this.liveServerTabPage.Controls.Add(this.groupBox3);
             this.liveServerTabPage.Controls.Add(this.groupBox1);
-            this.liveServerTabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.liveServerTabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.liveServerTabPage.Location = new System.Drawing.Point(4, 22);
             this.liveServerTabPage.Name = "liveServerTabPage";
             this.liveServerTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -136,7 +140,8 @@
             // liveServerStatus
             // 
             this.liveServerStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.liveServerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.liveServerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.liveServerStatus.ForeColor = System.Drawing.Color.Red;
             this.liveServerStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.liveServerStatus.Location = new System.Drawing.Point(44, 19);
@@ -148,8 +153,10 @@
             // 
             // liveServerStatusPicture
             // 
-            this.liveServerStatusPicture.Image = ((System.Drawing.Image)(resources.GetObject("liveServerStatusPicture.Image")));
-            this.liveServerStatusPicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("liveServerStatusPicture.InitialImage")));
+            this.liveServerStatusPicture.Image =
+                ((System.Drawing.Image) (resources.GetObject("liveServerStatusPicture.Image")));
+            this.liveServerStatusPicture.InitialImage =
+                ((System.Drawing.Image) (resources.GetObject("liveServerStatusPicture.InitialImage")));
             this.liveServerStatusPicture.Location = new System.Drawing.Point(6, 19);
             this.liveServerStatusPicture.Name = "liveServerStatusPicture";
             this.liveServerStatusPicture.Size = new System.Drawing.Size(32, 32);
@@ -193,7 +200,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label1.Location = new System.Drawing.Point(3, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 15);
@@ -202,26 +210,14 @@
             // 
             // timeLiveServer
             // 
-            this.timeLiveServer.Increment = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.timeLiveServer.Increment = new decimal(new int[] {10, 0, 0, 0});
             this.timeLiveServer.Location = new System.Drawing.Point(166, 70);
-            this.timeLiveServer.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
+            this.timeLiveServer.Maximum = new decimal(new int[] {10000000, 0, 0, 0});
             this.timeLiveServer.Name = "timeLiveServer";
             this.timeLiveServer.Size = new System.Drawing.Size(120, 20);
             this.timeLiveServer.TabIndex = 14;
             this.timeLiveServer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.timeLiveServer.Value = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
+            this.timeLiveServer.Value = new decimal(new int[] {300, 0, 0, 0});
             // 
             // liveServerPath
             // 
@@ -289,7 +285,8 @@
             // devServerStatus
             // 
             this.devServerStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.devServerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.devServerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.devServerStatus.ForeColor = System.Drawing.Color.Red;
             this.devServerStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.devServerStatus.Location = new System.Drawing.Point(44, 19);
@@ -301,8 +298,10 @@
             // 
             // devServerStatusPicture
             // 
-            this.devServerStatusPicture.Image = ((System.Drawing.Image)(resources.GetObject("devServerStatusPicture.Image")));
-            this.devServerStatusPicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("devServerStatusPicture.InitialImage")));
+            this.devServerStatusPicture.Image =
+                ((System.Drawing.Image) (resources.GetObject("devServerStatusPicture.Image")));
+            this.devServerStatusPicture.InitialImage =
+                ((System.Drawing.Image) (resources.GetObject("devServerStatusPicture.InitialImage")));
             this.devServerStatusPicture.Location = new System.Drawing.Point(6, 19);
             this.devServerStatusPicture.Name = "devServerStatusPicture";
             this.devServerStatusPicture.Size = new System.Drawing.Size(32, 32);
@@ -346,7 +345,8 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label7.Location = new System.Drawing.Point(3, 24);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 15);
@@ -355,26 +355,14 @@
             // 
             // timeDevServer
             // 
-            this.timeDevServer.Increment = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.timeDevServer.Increment = new decimal(new int[] {10, 0, 0, 0});
             this.timeDevServer.Location = new System.Drawing.Point(166, 70);
-            this.timeDevServer.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
+            this.timeDevServer.Maximum = new decimal(new int[] {10000000, 0, 0, 0});
             this.timeDevServer.Name = "timeDevServer";
             this.timeDevServer.Size = new System.Drawing.Size(120, 20);
             this.timeDevServer.TabIndex = 14;
             this.timeDevServer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.timeDevServer.Value = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
+            this.timeDevServer.Value = new decimal(new int[] {300, 0, 0, 0});
             // 
             // devServerPath
             // 
@@ -407,8 +395,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.jenkinsPassword);
-            this.tabPage1.Controls.Add(this.jenkinsUser);
+            this.tabPage1.Controls.Add(this.jenkinsPath);
+            this.tabPage1.Controls.Add(this.customWindowTitle);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.labeln);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -419,28 +407,28 @@
             this.tabPage1.Text = "General Settings";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // jenkinsPassword
+            // jenkinsPath
             // 
-            this.jenkinsPassword.Location = new System.Drawing.Point(122, 42);
-            this.jenkinsPassword.Name = "jenkinsPassword";
-            this.jenkinsPassword.Size = new System.Drawing.Size(242, 20);
-            this.jenkinsPassword.TabIndex = 3;
+            this.jenkinsPath.Location = new System.Drawing.Point(134, 38);
+            this.jenkinsPath.Name = "jenkinsPath";
+            this.jenkinsPath.Size = new System.Drawing.Size(242, 20);
+            this.jenkinsPath.TabIndex = 3;
             // 
-            // jenkinsUser
+            // customWindowTitle
             // 
-            this.jenkinsUser.Location = new System.Drawing.Point(122, 16);
-            this.jenkinsUser.Name = "jenkinsUser";
-            this.jenkinsUser.Size = new System.Drawing.Size(242, 20);
-            this.jenkinsUser.TabIndex = 2;
+            this.customWindowTitle.Location = new System.Drawing.Point(134, 16);
+            this.customWindowTitle.Name = "customWindowTitle";
+            this.customWindowTitle.Size = new System.Drawing.Size(242, 20);
+            this.customWindowTitle.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 15);
+            this.label2.Size = new System.Drawing.Size(118, 15);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Jenkins Password";
+            this.label2.Text = "Jenkins Project Path";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // labeln
@@ -448,9 +436,9 @@
             this.labeln.AutoSize = true;
             this.labeln.Location = new System.Drawing.Point(38, 16);
             this.labeln.Name = "labeln";
-            this.labeln.Size = new System.Drawing.Size(78, 15);
+            this.labeln.Size = new System.Drawing.Size(77, 15);
             this.labeln.TabIndex = 0;
-            this.labeln.Text = "Jenkins User";
+            this.labeln.Text = "Window Title";
             // 
             // save
             // 
@@ -472,10 +460,10 @@
             this.Controls.Add(this.save);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "TerraTex GT-MP ServerControl";
+            this.Text = "TerraTex ServerControl";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -483,20 +471,19 @@
             this.tabControl1.ResumeLayout(false);
             this.liveServerTabPage.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.liveServerStatusPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.liveServerStatusPicture)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeLiveServer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.timeLiveServer)).EndInit();
             this.devServerTabPage.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.devServerStatusPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.devServerStatusPicture)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeDevServer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.timeDevServer)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -533,8 +520,8 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labeln;
-        private System.Windows.Forms.TextBox jenkinsPassword;
-        private System.Windows.Forms.TextBox jenkinsUser;
+        private System.Windows.Forms.TextBox customWindowTitle;
+        private System.Windows.Forms.TextBox jenkinsPath;
     }
 }
 

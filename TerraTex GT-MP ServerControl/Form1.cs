@@ -56,37 +56,20 @@ namespace TerraTex_GT_MP_ServerControl
             devServerPath.Text = app.Default.dev_path;
             autostartDevServer.Checked = app.Default.dev_autorestart;
 
-            jenkinsUser.Text = app.Default.jenkinsUser;
-            jenkinsPassword.Text = app.Default.jenkinsPassword;
+            customWindowTitle.Text = app.Default.customWindowTitle;
+            jenkinsPath.Text = app.Default.jenkinsPath;
+
+            if (customWindowTitle.Text.Length == 0)
+            {
+                customWindowTitle.Text = "TerraTex Servercontrol";
+            }
 
             Program.Worker = new CheckProcess(this);
             Program.WorkerThread = new Thread(Program.Worker.DoWork);
             Program.WorkerThread.Start();
 
-            Program.ws = new WebServer(request =>
-            {
-                Dictionary<int,bool> status = new Dictionary<int, bool>();
-                if (devServerStatus.ForeColor == Color.Green)
-                {
-                    status.Add(4599, true);
-                }
-                else
-                {
-                    status.Add(4599, false);
-                }
-                if (liveServerStatus.ForeColor == Color.Green)
-                {
-                    status.Add(4499, true);
-                }
-                else
-                {
-                    status.Add(4499, false);
-                }
-                return JObject.FromObject(status).ToString();
-
-
-            }, "http://localhost:11000/");
-            Program.ws.Run();
+            this.Text = customWindowTitle.Text;
+            notifyIcon2.Text = customWindowTitle.Text;
         }
 
         private void selectDevServerPath_Click(object sender, EventArgs e)
@@ -117,8 +100,11 @@ namespace TerraTex_GT_MP_ServerControl
             app.Default.dev_path = devServerPath.Text;
             app.Default.dev_autorestart = autostartDevServer.Checked;
 
-            app.Default.jenkinsUser = jenkinsUser.Text;
-            app.Default.jenkinsPassword = jenkinsPassword.Text;
+            app.Default.customWindowTitle = customWindowTitle.Text;
+            this.Text = customWindowTitle.Text;
+            notifyIcon2.Text = customWindowTitle.Text;
+            
+            app.Default.jenkinsPath = jenkinsPath.Text;
 
             app.Default.Save();
         }
@@ -212,9 +198,6 @@ namespace TerraTex_GT_MP_ServerControl
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Program.Worker.RequestStop();
-            Program.ws.Stop();
-            
-           
         }
 
         private void liveServerStartButton_Click(object sender, EventArgs e)

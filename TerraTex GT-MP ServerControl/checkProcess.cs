@@ -162,12 +162,16 @@ namespace TerraTex_GT_MP_ServerControl
 
         private bool CheckBuildStatusOfJenkins(string branch)
         {
+            if (app.Default.jenkinsPath.Length == 0)
+            {
+                return false;
+            }
             // Path 1: 
             // Path 2: http://build.terratex.eu:8080/job/TerraTex-Community/job/GT-MP-Reallife-RPG-Script/job/develop/{latestBuildId}/api/json
             // 3.: building: false && result: SUCCESS
             try
             {
-                WebRequest request = WebRequest.Create("http://build.terratex.eu:8080/job/tt-ragemp-typescript/job/" + branch + "/api/json");
+                WebRequest request = WebRequest.Create("http://build.terratex.eu:8080/job/" + app.Default.jenkinsPath + "/job/" + branch + "/api/json");
                 WebResponse response = request.GetResponse();
                 Stream dataStream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(dataStream ?? throw new InvalidOperationException());

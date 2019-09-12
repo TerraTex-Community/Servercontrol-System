@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace TerraTex_GT_MP_ServerControl {
     
     
@@ -98,6 +100,7 @@ namespace TerraTex_GT_MP_ServerControl {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Obsolete]
         public string jenkinsUser {
             get {
                 return ((string)(this["jenkinsUser"]));
@@ -110,12 +113,37 @@ namespace TerraTex_GT_MP_ServerControl {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Obsolete]
         public string jenkinsPassword {
             get {
                 return ((string)(this["jenkinsPassword"]));
             }
             set {
                 this["jenkinsPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string jenkinsPath {
+            get {
+                return ((string)(this["jenkinsPath"]));
+            }
+            set {
+                this["jenkinsPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string customWindowTitle {
+            get {
+                return ((string)(this["customWindowTitle"]));
+            }
+            set {
+                this["customWindowTitle"] = value;
             }
         }
     }
